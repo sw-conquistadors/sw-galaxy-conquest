@@ -6,6 +6,9 @@ export const environment = {
   production: false
 };
 
+export const awsUrl = `https://ec2-54-144-253-62.compute-1.amazonaws.com:5000/api`
+export const swapiUrl = `https://swapi.dev/api/planets`
+export const localUrl = `http://localhost:5000/api`
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
