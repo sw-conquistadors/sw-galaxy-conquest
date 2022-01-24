@@ -45,7 +45,7 @@ export class PlanetsComponent implements OnInit {
   }
 
   showModal() {
-    
+
   }
 
 
