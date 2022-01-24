@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { catchError, Observable, throwError } from 'rxjs';
 import { Planet } from '../models/planet';
+import { PlanetGc } from '../models/planetGc';
 
 const url = `${awsUrl}/planets`
 const sUrl = `${swapiUrl}`
@@ -21,10 +22,9 @@ export class PlanetService {
 findAllPlanets(): Planet[] {
   let planets: Planet[] = [];
 
-  let planet: Planet = new Planet('','','','','','','','','','');
   for (let i = 1; i <= 60; i++ ) {
 
-    this.http.get<Planet>(`https://swapi.dev/api/planets/${i}`)
+    this.http.get<Planet>(`${sUrl}/${i}`)
       .subscribe(data => {
         planets.push(data)
       }, error => this.handleError(error));
@@ -36,6 +36,15 @@ findAllPlanets(): Planet[] {
 
 findPlanet(id: number): Observable<Planet> {
   return this.http.get<Planet>(`${sUrl}/${id}`)
+    .pipe(catchError(this.handleError));
+}
+findPlaneGc(id: number): Observable<PlanetGc> {
+  return this.http.get<PlanetGc>(`${awsUrl}/${id}`)
+    .pipe(catchError(this.handleError));
+}
+
+findPlanetByName(name: string): Observable<PlanetGc> {
+  return this.http.get<PlanetGc>(`${awsUrl}/find/${name}`)
     .pipe(catchError(this.handleError));
 }
 

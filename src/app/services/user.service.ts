@@ -26,8 +26,8 @@ export class UserService {
 
   registerUser(user: User): Observable<User> {
     console.log('This is url of registered User')
-    console.log(`${lUrl}/add`)
-    return this.http.post<User>(`${lUrl}/add`, user, this.httpOptions)
+    console.log(`${url}/add`)
+    return this.http.post<User>(`${url}/add`, user, this.httpOptions)
           .pipe(catchError(this.handleError));
   }
 

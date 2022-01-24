@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavComponent implements OnInit {
 
+  authenticated: boolean = false;
+  
   constructor() { }
 
   ngOnInit(): void {
