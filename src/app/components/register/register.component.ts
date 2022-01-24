@@ -10,7 +10,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class RegisterComponent implements OnInit {
 
-  title = "Resister a New Account"
+  title = "Register a New Account"
   public user = new User(0,'','')
   clientMessage: ClientMessage = new ClientMessage('');
   constructor(private userService: UserService) { }
