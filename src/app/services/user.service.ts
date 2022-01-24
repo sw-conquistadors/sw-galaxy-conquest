@@ -25,6 +25,8 @@ export class UserService {
   }
 
   registerUser(user: User): Observable<User> {
+    console.log('This is url of registered User')
+    console.log(`${lUrl}/add`)
     return this.http.post<User>(`${lUrl}/add`, user, this.httpOptions)
           .pipe(catchError(this.handleError));
   }
@@ -45,6 +47,7 @@ export class UserService {
     if (httpError.error instanceof ErrorEvent) {
       console.log('An error occurred: ', httpError.error.message)
     } else {
+      console.dir(httpError)
       console.error(`
         Backend returned code ${httpError.status},
         body was: ${httpError.error}

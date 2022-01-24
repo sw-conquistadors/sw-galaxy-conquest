@@ -5,7 +5,7 @@ import { catchError, Observable, throwError } from 'rxjs';
 import { Planet } from '../models/planet';
 
 const url = `${awsUrl}/planets`
-const sUrl = `${swapiUrl}/`
+const sUrl = `${swapiUrl}`
 
 @Injectable({
   providedIn: 'root'
@@ -34,8 +34,8 @@ findAllPlanets(): Planet[] {
 
 }
 
-findPlanets(id: number): Observable<Planet> {
-  return this.http.get<Planet>(`https://swapi.dev/api/planets/${id}`)
+findPlanet(id: number): Observable<Planet> {
+  return this.http.get<Planet>(`${sUrl}/${id}`)
     .pipe(catchError(this.handleError));
 }
 
