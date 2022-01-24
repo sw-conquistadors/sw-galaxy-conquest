@@ -5,7 +5,7 @@ import { catchError, Observable, throwError } from 'rxjs';
 import { Planet } from '../models/planet';
 import { PlanetGc } from '../models/planetGc';
 
-const url = `${awsUrl}/planets`
+const url = `${awsUrl}`
 const sUrl = `${swapiUrl}`
 
 @Injectable({
@@ -34,17 +34,29 @@ findAllPlanets(): Planet[] {
 
 }
 
+findGalaxy(id: number): PlanetGc[] {
+  let planets: PlanetGc[] = [];
+
+  this.http.get<PlanetGc[]>(`${url}/galaxies/${id}`)
+    .subscribe(
+      data => planets = data,
+      error => this.handleError(error));
+
+  return planets
+
+}
+
 findPlanet(id: number): Observable<Planet> {
   return this.http.get<Planet>(`${sUrl}/${id}`)
     .pipe(catchError(this.handleError));
 }
 findPlaneGc(id: number): Observable<PlanetGc> {
-  return this.http.get<PlanetGc>(`${awsUrl}/${id}`)
+  return this.http.get<PlanetGc>(`${awsUrl}/planets/${id}`)
     .pipe(catchError(this.handleError));
 }
 
 findPlanetByName(name: string): Observable<PlanetGc> {
-  return this.http.get<PlanetGc>(`${awsUrl}/find/${name}`)
+  return this.http.get<PlanetGc>(`${awsUrl}/planets/find/${name}`)
     .pipe(catchError(this.handleError));
 }
 
