@@ -43,6 +43,15 @@ export class UserService {
             .pipe(catchError(this.handleError));
   }
 
+    // validate
+    validateUser(user: User) {
+      console.log('This is url of logging in User')
+      console.log(`${url}/validate`)
+      console.log(user)
+      return this.http.post<User>(`${url}/validate`, user, this.httpOptions)
+              .pipe(catchError(this.handleError));
+    }
+
   private handleError(httpError: HttpErrorResponse) {
     if (httpError.error instanceof ErrorEvent) {
       console.log('An error occurred: ', httpError.error.message)
