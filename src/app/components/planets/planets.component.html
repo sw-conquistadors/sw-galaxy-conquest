@@ -8,14 +8,11 @@
     <div class="row">
       <div *ngFor="let p of planets" class="col-sm-6 col-md-4 col-lg-3">
         <div class="card">
-          <img src='{{baseImg}}{{p.name}}' class="card-img-top" alt="Planet">
+          <button class="btn btn-primary planet" data-bs-toggle="modal" data-bs-toggle="#planetModal"><img src='{{baseImg}}{{p.name}}' class="card-img-top" alt="Planet"></button>
           <div class="card-body">
             <h5 class="card-title">{{ p.name }}</h5>
             <div class="card-text">
             </div>
-          </div>
-          <div class="card-body">
-            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-toggle="#planetModal">Show More</button>
           </div>
         </div>
       </div>
