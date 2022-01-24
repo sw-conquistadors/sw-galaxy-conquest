@@ -1,39 +1,47 @@
-import { stringify } from "querystring";
-
 export class PlanetGc {
   id: string;
-  name: string;
-  rotation_period: string;
-  orbital_period: string;
-  diameter: string;
-  climate: string;
+  url: string;
+  image: string;
   gravity: string;
+  climate: string;
+  name: string;
   terrain: string;
-  surface_water: string;
+  tier: string;
+  average: string;
+  recruitment: string;
+  factory: string;
+  diameter: string;
   population: string;
 
   constructor(
     id: string,
-    name: string,
-    rotation_period: string,
-    orbital_period: string,
-    diameter: string,
-    climate: string,
+    url: string,
+    image: string,
     gravity: string,
+    climate: string,
+    name: string,
     terrain: string,
-    surface_water: string,
-    population: string,
+    tier: string,
+    average: string,
+    recruitment: string,
+    factory: string,
+    diameter: string,
+    population: string
 ) {
     this.id = id
-    this.name = name
-    this.rotation_period = rotation_period
-    this.orbital_period = orbital_period
-    this.diameter = diameter
-    this.climate = climate
+    this.url = url
+    this.image = image
     this.gravity = gravity
+    this.climate = climate
+    this.name = name
     this.terrain = terrain
-    this.surface_water = surface_water
+    this.tier = tier
+    this.average = average
+    this.recruitment = recruitment
+    this.factory = factory
+    this.diameter = diameter
     this.population = population
   }
+
 
 }
