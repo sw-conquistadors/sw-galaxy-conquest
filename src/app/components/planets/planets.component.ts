@@ -1,3 +1,4 @@
+import { localUrl } from './../../../environments/environment';
 import { PlanetService } from './../../services/planet.service';
 import { Planet } from './../../models/planet';
 import { Component, OnInit } from '@angular/core';
@@ -13,6 +14,7 @@ export class PlanetsComponent implements OnInit {
 
   public planets: Planet[] = [];
 
+  public baseImg = `${localUrl}/planets/image/`
 
   constructor(private pServ: PlanetService) { }
 
@@ -25,6 +27,7 @@ export class PlanetsComponent implements OnInit {
     // We are calling a method from the user service that will return an Observable
     this.planets = this.pServ.findAllPlanets();
   }
+
 
 
 }
