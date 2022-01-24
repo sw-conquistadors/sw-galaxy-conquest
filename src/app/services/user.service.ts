@@ -45,9 +45,6 @@ export class UserService {
 
     // validate
     validateUser(user: User) {
-      console.log('This is url of logging in User')
-      console.log(`${url}/validate`)
-      console.log(user)
       return this.http.post<User>(`${url}/validate`, user, this.httpOptions)
               .pipe(catchError(this.handleError));
     }

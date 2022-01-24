@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-nav',
@@ -6,12 +7,12 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
-
-  public authenticated: boolean = false;
-
-  constructor() { }
+  constructor(public authService:AuthenticationService) { }
 
   ngOnInit(): void {
   }
 
+  public logOut(): void{
+    this.authService.authenticated = false;
+  }
 }

@@ -1,28 +1,52 @@
 <div>
   <div>
-    <h2 class="card-header text-center">{{ title }}</h2>
+    <h2 *ngIf="!this.authService.authenticated" class="card-header text-center">Login</h2>
+    <h2 *ngIf="this.authService.authenticated" class="card-header text-center">Profile</h2>
   </div>
 
   <div class="card-body">
+    <div *ngIf="!this.authService.authenticated">
+      <form>
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="form-group col-md-6 col-md-offset-6">
+            <label for="inputUsername">Username</label>
+            <input [(ngModel)]="user.username" type="text" name="username" class="form-control" id="inputUsername">
+          </div>
+        </div>
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="form-group col-md-6 col-md-offset-6">
+            <label for="inputPassword">Password</label>
+            <input [(ngModel)]="user.password" type="password" name="password" class="form-control" id="inputPassword">
+          </div>
+        </div>
+        <div class="d-grid gap-2 col-md-6 mx-auto" id="login-btn">
+          <button class="btn btn-primary" type="button" (click)="validateUser()">Log In</button>
+        </div>
+      </form><br>
+    </div>
 
-    <form action="">
-      <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="form-group col-md-6 col-md-offset-6">
-          <label for="inputUsername">Username</label>
-          <input [(ngModel)]="user.username" type="text" name="username" class="form-control" id="inputUsername">
-        </div>
-      </div>
-      <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="form-group col-md-6 col-md-offset-6">
-          <label for="inputPassword">Password</label>
-          <input [(ngModel)]="user.password" type="password" name="password" class="form-control" id="inputPassword">
-        </div>
-      </div>
-      <div class="d-grid gap-2 col-md-6 mx-auto" id="login-btn">
-        <button class="btn btn-primary" type="button" (click)="validateUser(user.username, user.password)">Log In</button>
-      </div>
-    </form><br>
     <div *ngIf="clientMessage.message.length > 0" class="alert alert-success" role="alert">
       {{ clientMessage.message }}
     </div>
+
+    <div *ngIf="this.authService.authenticated">
+      <form>
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="form-group col-md-6 col-md-offset-6">
+            <label for="inputUsername">Username</label>
+            <input [(ngModel)]="user.username" type="text" name="username" class="form-control" id="inputUsername">
+          </div>
+        </div>
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="form-group col-md-6 col-md-offset-6">
+            <label for="inputPassword">Password</label>
+            <input [(ngModel)]="user.password" type="password" name="password" class="form-control" id="inputPassword">
+          </div>
+        </div>
+        <div class="d-grid gap-2 col-md-6 mx-auto" id="update-btn">
+          <button class="btn btn-primary" type="button" (click)="updateUser()">Update Info</button>
+        </div>
+      </form><br>
+    </div>
+
 </div>
