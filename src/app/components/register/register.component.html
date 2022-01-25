@@ -4,6 +4,9 @@
   </div>
 
   <div class="card-body">
+    <div *ngIf="clientMessage.message.length > 0" [class]="this.alertString" role="alert">
+      {{ clientMessage.message }}
+    </div>
 
     <form action="">
       <div class="row d-flex justify-content-center align-items-center h-100">
@@ -23,7 +26,4 @@
       </div>
     </form><br>
 
-    <div *ngIf="clientMessage.message.length > 0" class="alert alert-success" role="alert">
-      {{ clientMessage.message }}
-    </div>
 </div>

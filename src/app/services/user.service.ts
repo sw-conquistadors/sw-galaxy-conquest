@@ -59,7 +59,7 @@ export class UserService {
         body was: ${httpError.error}
       `)
     }
-    return throwError(() => new Error('Something really bad happened, please try again later'))
+    return throwError(() => new Error('Unable to process request.'))
   }
 
 }

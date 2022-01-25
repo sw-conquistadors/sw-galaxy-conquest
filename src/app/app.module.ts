@@ -8,11 +8,9 @@ import { RegisterComponent } from './components/register/register.component';
 import { MainComponent } from './components/main/main.component';
 import { PlanetsComponent } from './components/planets/planets.component';
 import { LoginComponent } from './components/login/login.component';
-import { ProfileComponent } from './components/profile/profile.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { GameComponent } from './components/game/game.component';
-import { PlanetComponent } from './components/planet/planet.component';
 
 @NgModule({
   declarations: [
@@ -22,9 +20,7 @@ import { PlanetComponent } from './components/planet/planet.component';
     MainComponent,
     PlanetsComponent,
     LoginComponent,
-    ProfileComponent,
-    GameComponent,
-    PlanetComponent
+    GameComponent
   ],
   imports: [
     BrowserModule,

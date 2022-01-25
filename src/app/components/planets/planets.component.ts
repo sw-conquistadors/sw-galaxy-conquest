@@ -15,9 +15,6 @@ export class PlanetsComponent implements OnInit {
 
   baseImg = `${awsUrl}/planets/image/`
 
-  planet: Planet = new Planet('','','','','','','','','','')
-  planetGc: PlanetGc = new PlanetGc('','','','','','','','','','','','','')
-
   constructor(public pServ: PlanetService) { }
 
   ngOnInit(): void {
@@ -43,25 +40,20 @@ export class PlanetsComponent implements OnInit {
 
   findPlanetGc(name: string) {
     this.pServ.findPlanetGcByName(name).subscribe(
-      data => this.planetGc = data
+      data => this.pServ.planetGc = data
     )
   }
 
   findPlanet(id: number) {
     this.pServ.findPlanet(id).subscribe(
-      data => this.planet = data
+      data => this.pServ.planet = data
     )
   }
 
   findPlanetByName(name: string) {
     this.pServ.findPlanetByName(name).subscribe(
-      data => this.planet = data
+      data => this.pServ.planet = data
     )
   }
-
-  showModal() {
-
-  }
-
 
 }

@@ -1,44 +1,47 @@
 <div class="bg-transparent">
 
-    <div>
-      <h2 class="card-header text-center">{{ title }}</h2>
-    </div>
+  <div>
+    <h2 class="card-header text-center">{{ title }}</h2>
+  </div>
 
-    <div class="card-body">
-      <div class="row">
-        <div *ngFor="let p of planets" class="col-sm-6 col-md-4 col-lg-3"> <!-- This will have whatever planets are in the galaxy-->
-          <div class="card">
-            <img src='{{baseImg}}{{p.name}}' class="card-img-top" alt="Planet">
-            <div class="card-body">
-              <h5 class="card-title">{{ p.name }}</h5>
-              <div class="card-text">
-              </div>
+  <div class="card-body">
+    <div class="row">
+      <div *ngFor="let p of this.pServ.planets" class="col-sm-6 col-md-4 col-lg-3">
+        <div class="card">
+          <button class="btn btn-primary planet" data-bs-toggle="modal" data-bs-toggle="#planetModal"><img src='{{baseImg}}{{p.name}}' class="card-img-top" alt="Planet" (click)="showPlanet(p.name)" data-bs-toggle="modal" href="#planetModal" style="cursor: pointer;font-weight: bold;"></button>
+          <div class="card-body">
+            <h5 class="card-title text-center">{{ p.name }}</h5>
+            <div class="card-text">
             </div>
-            <div class="card-body">
-              <button *ngIf = "" class="btn btn-primary" data-bs-toggle="modal" data-bs-toggle="#planetModal">Show More</button><!--This button will only work if the user has enough strength-->
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="modal fade" id="planetModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="planet-name">Modal title</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            ...
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
           </div>
         </div>
       </div>
     </div>
 
   </div>
+
+  <div class="modal fade" id="planetModal" tabindex="-1" aria-labelledby="planetModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-center" id="planet-name">{{ this.pServ.planetGc.name }}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <img src='{{baseImg}}{{this.pServ.planetGc.name}}' class="card-img-top" alt="Planet">
+          <p class="border-bottom"> Tier: {{ this.pServ.planetGc.tier }}
+          <p class="border-bottom"> Terrain: {{ this.pServ.planetGc.terrain }}
+          <p class="border-bottom"> Climate: {{ this.pServ.planetGc.climate }}
+          <p class="border-bottom"> Gravity: {{ this.pServ.planetGc.gravity }}
+          <p class="border-bottom"> Diameter: {{ this.pServ.planetGc.diameter }}
+          <p class="border-bottom"> Population: {{ this.pServ.planetGc.population }}
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

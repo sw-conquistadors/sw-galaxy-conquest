@@ -14,21 +14,25 @@ export class RegisterComponent implements OnInit {
   public user = new User(0,'','')
   clientMessage: ClientMessage = new ClientMessage('');
   constructor(private userService: UserService, public authService: AuthenticationService) { }
+  alertString = "";
 
   ngOnInit(): void {
   }
 
   public registerUser(): void {
-    if(this.userService.registerUser(this.user)
+    this.userService.registerUser(this.user)
     .subscribe(
       data => {
+        this.alertString = "alert alert-success"
         this.clientMessage.message = `Successfully registered ${data.username}`;
         this.user = data;
-     }, // data => this.userService.logger.log(data),
-      error => this.clientMessage.message = `Something went wrong. ${error}`   // error => this.userService.logger.error(error)
-    )){
         this.authService.authenticated = true;
+     },
+      error => {
+        this.alertString = "alert alert-danger"
+        this.clientMessage.message = `${error} Username ${this.user.username} already exists!`
       }
+    )
   }
 
 }
