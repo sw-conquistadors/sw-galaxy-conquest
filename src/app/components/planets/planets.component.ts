@@ -13,23 +13,32 @@ export class PlanetsComponent implements OnInit {
 
   title = "Explore the Planets"
 
-  public planets: Planet[] = [];
+  baseImg = `${awsUrl}/planets/image/`
 
-  public baseImg = `${awsUrl}/planets/image/`
+  planet: Planet = new Planet('','','','','','','','','','')
+  planetGc: PlanetGc = new PlanetGc('','','','','','','','','','','','','')
 
-  public planet: Planet = new Planet('','','','','','','','','','')
-  public planetGc: PlanetGc = new PlanetGc('','','','','','','','','','','','','')
-
-  constructor(private pServ: PlanetService) { }
+  constructor(public pServ: PlanetService) { }
 
   ngOnInit(): void {
     this.findAllPlanets();
-    console.log(this.planets)
+  }
+
+  showPlanet(name: string) {
+    this.pServ.findPlanetByName(name).subscribe(
+      data => this.pServ.planetGc = data
+    )
+    
   }
 
   findAllPlanets() {
     // We are calling a method from the user service that will return an Observable
-    this.planets = this.pServ.findAllPlanets();
+    if (this.pServ.planets.length == 0) {
+      console.log("Retrieving Planets from API")
+      this.pServ.planets = this.pServ.findAllPlanets();
+    } else {
+      console.log("Retrieving Data from Service")
+    }
   }
 
   findPlanetGc(name: string) {

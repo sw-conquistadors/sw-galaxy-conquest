@@ -15,6 +15,11 @@ export class PlanetService {
 
   constructor(private http: HttpClient) { }
 
+  public planets: Planet[] = [];
+  
+  planetGc: PlanetGc = new PlanetGc('','','','','','','','','','','','','')
+
+
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   }
@@ -22,7 +27,7 @@ export class PlanetService {
   findAllPlanets(): Planet[] {
     let planets: Planet[] = [];
 
-    for (let i = 1; i <= 1; i++ ) {
+    for (let i = 1; i <= 60; i++ ) {
 
       this.http.get<Planet>(`${sUrl}/${i}`)
         .subscribe(data => {
@@ -51,7 +56,7 @@ export class PlanetService {
       .pipe(catchError(this.handleError));
   }
 
-  findPlaneGc(id: number): Observable<PlanetGc> {
+  findPlanetGc(id: number): Observable<PlanetGc> {
     return this.http.get<PlanetGc>(`${awsUrl}/planets/${id}`)
       .pipe(catchError(this.handleError));
   }

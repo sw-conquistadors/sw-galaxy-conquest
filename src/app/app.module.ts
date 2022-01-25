@@ -11,6 +11,8 @@ import { LoginComponent } from './components/login/login.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { GameComponent } from './components/game/game.component';
+import { PlanetComponent } from './components/planet/planet.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { FormsModule } from '@angular/forms';
     MainComponent,
     PlanetsComponent,
     LoginComponent,
-    ProfileComponent
+    ProfileComponent,
+    GameComponent,
+    PlanetComponent
   ],
   imports: [
     BrowserModule,
