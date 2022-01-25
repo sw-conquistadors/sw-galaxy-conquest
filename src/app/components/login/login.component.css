@@ -5,6 +5,7 @@
 
 .btn-primary {
   background-color: rgb(74, 84, 102);
+  border: none;
 }
 
 h2, .card-body {

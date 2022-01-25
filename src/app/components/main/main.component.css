@@ -3,7 +3,8 @@
   height: 50px;
   margin: 1%;
   background-color: rgb(74, 84, 102);
-  font-family: 'Star Jedi'
+  font-family: 'Star Jedi';
+  border: none;
 }
 
 h2 {

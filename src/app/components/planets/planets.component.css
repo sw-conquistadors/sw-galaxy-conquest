@@ -3,6 +3,10 @@
   font-family: 'Star Jedi'
 }
 
+.modal, h2 {
+  font-family: 'Star Jedi'
+}
+
 .planet {
   background-color: rgba(0, 0, 0, 0);
   border: none;
