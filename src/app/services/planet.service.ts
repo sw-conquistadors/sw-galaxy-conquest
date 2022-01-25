@@ -16,8 +16,8 @@ export class PlanetService {
   constructor(private http: HttpClient) { }
 
   public planets: Planet[] = [];
-  
-  planetGc: PlanetGc = new PlanetGc('','','','','','','','','','','','','')
+  planetGc: PlanetGc  = new PlanetGc('','','','','','','','','','','','','')
+  planet: Planet = new Planet('','','','','','','','','','')
 
 
   httpOptions = {
@@ -27,7 +27,7 @@ export class PlanetService {
   findAllPlanets(): Planet[] {
     let planets: Planet[] = [];
 
-    for (let i = 1; i <= 60; i++ ) {
+    for (let i = 1; i <= 1; i++ ) {
 
       this.http.get<Planet>(`${sUrl}/${i}`)
         .subscribe(data => {
@@ -56,12 +56,17 @@ export class PlanetService {
       .pipe(catchError(this.handleError));
   }
 
+  findPlanetByName(name: string) {
+    return this.http.get<Planet>(`${sUrl}/${name}`)
+    .pipe(catchError(this.handleError));
+  }
+
   findPlanetGc(id: number): Observable<PlanetGc> {
     return this.http.get<PlanetGc>(`${awsUrl}/planets/${id}`)
       .pipe(catchError(this.handleError));
   }
 
-  findPlanetByName(name: string): Observable<PlanetGc> {
+  findPlanetGcByName(name: string): Observable<PlanetGc> {
     return this.http.get<PlanetGc>(`${awsUrl}/planets/find/${name}`)
       .pipe(catchError(this.handleError));
   }

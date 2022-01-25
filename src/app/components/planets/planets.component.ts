@@ -24,11 +24,11 @@ export class PlanetsComponent implements OnInit {
     this.findAllPlanets();
   }
 
+
   showPlanet(name: string) {
-    this.pServ.findPlanetByName(name).subscribe(
+    this.pServ.findPlanetGcByName(name).subscribe(
       data => this.pServ.planetGc = data
     )
-    
   }
 
   findAllPlanets() {
@@ -42,13 +42,19 @@ export class PlanetsComponent implements OnInit {
   }
 
   findPlanetGc(name: string) {
-    this.pServ.findPlanetByName(name).subscribe(
+    this.pServ.findPlanetGcByName(name).subscribe(
       data => this.planetGc = data
     )
   }
 
   findPlanet(id: number) {
     this.pServ.findPlanet(id).subscribe(
+      data => this.planet = data
+    )
+  }
+
+  findPlanetByName(name: string) {
+    this.pServ.findPlanetByName(name).subscribe(
       data => this.planet = data
     )
   }
