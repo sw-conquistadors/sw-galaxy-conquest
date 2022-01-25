@@ -1,27 +1,21 @@
-# SwGc
+# Star Wars: Galaxy Conquest!
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.3.
+Galactic Conquest is a small server based browser game in which a player attempts to take over the galaxy. The player takes command of their home planet and a small fleet of ships which they then use to take over enemy planets. The planets and the information about each planet the player travels to are retrieved via the Star Wars API. The player wins when they have taken over more planets in the galaxy than their opponent.
 
-## Development server
+This is the angular front-end for the project. This application makes API calls to swapi.dev to retrieve preliminary information about the planets. 
+When a user creates an account, they will be able to explore information about each planet, including images and some basic statistics about the planet.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Technologies Used
 
-## Code scaffolding
+* Angular Version 13.1.3
+* Bootstrap Version 5.1
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Features
 
-## Build
+List of features ready:
+* Simple registration and log in to allow users to create an account
+* Beautiful custom images of the planets
+* 
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+To-do List:
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.

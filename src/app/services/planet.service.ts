@@ -27,7 +27,7 @@ export class PlanetService {
   findAllPlanets(): Planet[] {
     let planets: Planet[] = [];
 
-    for (let i = 1; i <= 1; i++ ) {
+    for (let i = 1; i <= 60; i++ ) {
 
       this.http.get<Planet>(`${sUrl}/${i}`)
         .subscribe(data => {
