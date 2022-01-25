@@ -19,4 +19,12 @@ List of features ready:
 
 To-do List:
 * Create turn structure for the game
-* Implement
+* Implement method for planetary capture
+* Implement Opponent AI
+
+## Getting Started
+The application can be accessed via the following link:
+
+<http://sw-galaxy-conquest.s3-website.us-east-2.amazonaws.com/>
+
+#
