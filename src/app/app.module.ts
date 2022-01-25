@@ -12,6 +12,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { GameComponent } from './components/game/game.component';
+import { PlanetComponent } from './components/planet/planet.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { GameComponent } from './components/game/game.component';
     PlanetsComponent,
     LoginComponent,
     ProfileComponent,
-    GameComponent
+    GameComponent,
+    PlanetComponent
   ],
   imports: [
     BrowserModule,

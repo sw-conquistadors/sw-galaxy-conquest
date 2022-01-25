@@ -6,11 +6,11 @@
 
   <div class="card-body">
     <div class="row">
-      <div *ngFor="let p of planets" class="col-sm-6 col-md-4 col-lg-3">
+      <div *ngFor="let p of this.pServ.planets" class="col-sm-6 col-md-4 col-lg-3">
         <div class="card">
-          <button class="btn btn-primary planet" data-bs-toggle="modal" data-bs-toggle="#planetModal"><img src='{{baseImg}}{{p.name}}' class="card-img-top" alt="Planet"></button>
+          <button class="btn btn-primary planet" data-bs-toggle="modal" data-bs-toggle="#planetModal"><img src='{{baseImg}}{{p.name}}' class="card-img-top" alt="Planet" (click)="showPlanet(p.name)"></button>
           <div class="card-body">
-            <h5 class="card-title">{{ p.name }}</h5>
+            <h5 class="card-title text-center">{{ p.name }}</h5>
             <div class="card-text">
             </div>
           </div>
@@ -20,7 +20,7 @@
 
   </div>
 
-  <div class="modal fade" id="planetModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div *ngIf="!5" class="modal fade" id="planetModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
