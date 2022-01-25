@@ -1,4 +1,12 @@
 #login-btn {
-  margin: 1%
+  margin: 1%;
+}
 
+h2, .card-body {
+  font-family: 'Star Jedi';
+}
+
+.register-btn {
+  background-color: rgb(74, 84, 102);
+  letter-spacing: 2px;
 }

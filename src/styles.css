@@ -1,4 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: "Star Jedi";
+  src: url(./assets/fonts/Starjedi.ttf) format("truetype");
+}
+
 body {
   /* height: 100%; */
   background: url('/assets/T3xqnS.jpg') no-repeat center center fixed;
