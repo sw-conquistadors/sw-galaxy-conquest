@@ -9,4 +9,5 @@ h2, .card-body {
 .register-btn {
   background-color: rgb(74, 84, 102);
   letter-spacing: 2px;
+  border: none;
 }

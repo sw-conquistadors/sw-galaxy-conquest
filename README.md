@@ -14,8 +14,9 @@ When a user creates an account, they will be able to explore information about e
 
 List of features ready:
 * Simple registration and log in to allow users to create an account
-* Beautiful custom images of the planets
-* 
+* Beautiful custom images for planets
+* Preliminary game logic for planets
 
 To-do List:
-
+* Create turn structure for the game
+* Implement
